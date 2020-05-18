@@ -4,10 +4,11 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
+    "heroku-deploy": "npm run tsc-build && git push heroku master",
     "start": "npm:tsc-build && npm src/index.js",
     "dev": "concurrently npm:tsc-watch npm:nodemon-watch",
     "tsc-watch": "tsc -w",
-    "tsc-build": "tsc .",
+    "tsc-build": "tsc",
     "nodemon-watch": "nodemon src/index.js"
   },
   "dependencies": {
