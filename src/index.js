@@ -24,6 +24,6 @@ app.get('/series', function (req, res) {
         });
     }
 });
-app.listen(process.env.port || PORT_NUMBER, function () {
+app.listen(process.env.PORT || PORT_NUMBER, function () {
     console.log("Listening on https://localhost:" + PORT_NUMBER);
 });
