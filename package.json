@@ -4,8 +4,10 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently npm:tsc-watch npm:nodemon-watch",
+    "start": "npm:tsc-build && npm src/index.js",
+    "dev": "concurrently npm:tsc-watch npm:nodemon-watch",
     "tsc-watch": "tsc -w",
+    "tsc-build": "tsc .",
     "nodemon-watch": "nodemon src/index.js"
   },
   "dependencies": {
