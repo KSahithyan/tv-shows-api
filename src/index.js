@@ -1,18 +1,18 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var data = require('./data.json');
 var app = express();
 var PORT_NUMBER = 3000;
 app.use(express.urlencoded({ extended: false }));
-// app.use(function (request, response, next) {
-//     response.setHeader('Access-Control-Allow-Origin', '*');
-//     response.setHeader('Content-Type', 'application-json');
-//     next()    
-// })
+app.use(function (request, response, next) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Content-Type', 'application/json');
+    next();
+});
 var formatJSON = function (obj) { return JSON.stringify(obj, null, 3); };
 app.get('/', function (request, response) {
-    response.setHeader('Content-Type', 'application-json');
+    // response.setHeader('Content-Type', 'application-json');
     response.send(formatJSON({
         available_endpoints: {
             "/show?id": "Returns the show with the specified id",
