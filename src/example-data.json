@@ -1,0 +1,38 @@
+{
+    "shows": [
+        {
+            "code_name": "code-name-of-the-show",
+            "name": "The Big Bang Theory",
+            "status": "Ended",
+            "season_count": 12,
+            "episodes_count_total": 280,
+            "episodes_count_per_season": {
+                "season_id": 10
+            },
+            "characters": [
+                {
+                    "character_name": "Sheldon Cooper",
+                    "actor_name": "Jim Parsons",
+                    "first_appearance": "S01E01"
+                }
+            ],
+            "episode_list": [
+                {
+                    "episode_id": "S01E01",
+                    "title": "Pilot",
+                    "important_notes": [
+                        "Penny moves in",
+                        "Sheldon and Leonard visits Penny's ex-boyfriend to pickup Penny's TV"
+                    ],
+                    "first_appearances": [
+                        "Sheldon",
+                        "Leonard"
+                    ]
+                }
+            ],
+            "references": [
+                "https://www.wikipedia.org/wiki/List_of_The_Big_Bang_Theory_episodes"
+            ]
+        }
+    ]
+}

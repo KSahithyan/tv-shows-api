@@ -1,5 +1,7 @@
 import express = require('express');
-const data = require('./data.json');
+import { DataObj } from "./data-types";
+
+const data: DataObj = require('./data.json');
     
 const app = express();
 const PORT_NUMBER = 3000;
@@ -10,20 +12,18 @@ app.get('/', function (req, res) {
     res.send("It's working");
 })
 
-app.get('/series', function (req, res) {
-    let seriesId: string = <string>req.query.id;
-    if (seriesId == undefined) {
+app.get('/show/:id', function (req, res) {
+    let showId: string = <string>req.params.id;
+    if (showId == undefined) {
         res.json({
-            message: "provide series parameter"
+            message: "provide a code_name"
         })
     }
-    if (Object.keys(data).includes(seriesId)) {
-        res.json(data[seriesId]);
-    } else {
-        res.json({
-            message: "Series not found"
-        })
-    }
+    let requestedShow = data.shows.find(show => show.code_name == showId);
+    
+    res.json(requestedShow || {
+        message: `Show with id ${showId} is not found`
+    })
 })
 
 app.listen(process.env.PORT || PORT_NUMBER, function () {
