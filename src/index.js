@@ -6,7 +6,7 @@ var app = express();
 var PORT_NUMBER = 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(function (request, response, next) {
-    response.setHeader('Access-Control-Allow-Origin', '*');
+    // response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Content-Type', 'application-json');
     next();
 });
