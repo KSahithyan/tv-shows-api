@@ -12,4 +12,6 @@ This API is now running on Zeit and Heroku. Here are the links.
 
 ## Development
 
-`npm start` will run the express server at http://localhost:3000 or override that with `PORT` argument.
+1. Clone this repo.
+2. `npm install`.
+3. `npm run dev` will run the express server at http://localhost:3000 or override that with `PORT` argument.

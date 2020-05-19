@@ -7,8 +7,8 @@
     "heroku-deploy": "npm run tsc-build && git push heroku master",
     "start": "node src/index.js",
     "dev": "concurrently npm:tsc-watch npm:nodemon-watch",
-    "tsc-watch": "tsc -w",
-    "tsc-build": "tsc",
+    "tsc-watch": "tsc -w src/index.ts",
+    "tsc-build": "tsc src/index.ts",
     "nodemon-watch": "nodemon src/index.js"
   },
   "dependencies": {
