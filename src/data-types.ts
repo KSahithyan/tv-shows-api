@@ -6,6 +6,11 @@ export interface CharacterObj {
     first_appearance: string
 }
 
+export interface SeasonObj {
+    season_no: number,
+    episode_count: number
+}
+
 export interface EpisodeObj {
     episode_id: string,
     episode_title: string,
@@ -21,7 +26,7 @@ export interface ShowObject {
     category: string[],
     season_count: number,
     episodes_count_total: number,
-    episodes_count_per_season: {},
+    seasons: SeasonObj[],
     characters: CharacterObj[],
     episode_list: EpisodeObj[],
     reference: string[]

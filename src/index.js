@@ -24,7 +24,7 @@ app.get('/show', function (request, response) {
     var showId = request.query.id;
     if (showId == undefined) {
         response.json({
-            message: "provide a code_name"
+            message: "provide an id"
         });
     }
     else {

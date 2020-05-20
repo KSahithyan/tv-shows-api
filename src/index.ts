@@ -29,7 +29,7 @@ app.get('/show', function (request, response) {
     let showId: string = (<string>request.query.id)
     if (showId == undefined) {
         response.json({
-            message: "provide a code_name"
+            message: "provide an id"
         })
     } else {
         let requestedShow = data.shows.find(show => show.id == showId.toLowerCase());
