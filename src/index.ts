@@ -1,5 +1,5 @@
 import express = require('express');
-import { DataObj } from "./data-types";
+import { DataObj } from "./types";
 
 const data: DataObj = require('./data.json');
     
@@ -51,7 +51,7 @@ app.get('/list/:category', function (request, response) {
             case "shows":
                 response.json(data.shows.map(show => {
                     return {
-                        code_name: show.id,
+                        id: show.id,
                         name: show.name
                     }
                 }))

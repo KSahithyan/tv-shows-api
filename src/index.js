@@ -46,7 +46,7 @@ app.get('/list/:category', function (request, response) {
             case "shows":
                 response.json(data.shows.map(function (show) {
                     return {
-                        code_name: show.id,
+                        id: show.id,
                         name: show.name
                     };
                 }));

@@ -14,15 +14,17 @@ export interface SeasonObj {
 export interface EpisodeObj {
     episode_id: string,
     episode_title: string,
-    important_notes: string[],
-    first_appearances: string[]
+    important_notes?: string[],
+    first_appearances?: string[]
 }
 
 export interface ShowObject {
+    is_complete_data: boolean, 
     id: string,
     name: string,
     status: "Ended" | "Running",
     start_date: string,
+    end_date: string,
     category: string[],
     season_count: number,
     episodes_count_total: number,

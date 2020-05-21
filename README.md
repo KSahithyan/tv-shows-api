@@ -2,9 +2,8 @@
 
 ## Usage
 
-This API is now running on Zeit and Heroku. Here are the links.
+This API is now running on Vercel and Heroku. Here are the links.
 
-- https://tv-shows-api-oowsacp5r.now.sh
 - https://tv-shows-api-psi.now.sh
 - https://tv-shows-api.ksahithyan.now.sh
 - https://tv-shows-api-git-master.ksahithyan.now.sh
@@ -14,9 +13,9 @@ This API is now running on Zeit and Heroku. Here are the links.
 
 If you want to contribute to this project, do these.
 
-1. Find a bug/error and open an issue here.
+1. Find a bug/error and open an issue on github.
 2. Find a bug/error/improvement, fix it (by developing) and pull request.
-3. Add your favorite shows to the data.json.
+3. Add your favorite shows to the [data object in data-gen.ts](./src/data-gen.ts#L10). Make sure there are no errors.
 
 ## Development
 
