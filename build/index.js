@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
-const data = require('./data.json');
+const routes_1 = require("./routes");
 const app = express();
 const PORT_NUMBER = 3000;
 app.use(express.urlencoded({ extended: false }));
@@ -10,21 +10,9 @@ app.use(function (request, response, next) {
     response.setHeader('Content-Type', 'application/json');
     next();
 });
-const formatJSON = (obj) => JSON.stringify(obj, null, 3);
-app.get('/', function (request, response) {
-    response.send(formatJSON({
-        available_endpoints: {
-            "/show?id": "Returns the show with the specified id",
-            "/list/shows": "Returns the available shows"
-        }
-    }));
-});
-app.get('/shows/:id', function (request, response) {
-    console.log('with id');
-});
-app.get('/shows', function (request, response) {
-    console.log('empty');
-});
+app.get('/', routes_1.getRoutes);
+app.get('/shows', routes_1.getShows);
+app.get('/shows/:id', routes_1.getShow);
 app.listen(process.env.PORT || PORT_NUMBER, function () {
     console.log(`Listening on https://localhost:${PORT_NUMBER}`);
 });
