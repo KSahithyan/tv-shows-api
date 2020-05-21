@@ -8,12 +8,11 @@
     "email": "sahithyan2701@gmail.com"
   },
   "scripts": {
-    "heroku-deploy": "npm run tsc-build && git push heroku master",
-    "start": "node src/index.js",
+    "start": "node build/index.js",
     "dev": "concurrently npm:tsc-watch npm:nodemon-watch",
-    "tsc-watch": "tsc -w src/index.ts",
-    "tsc-build": "tsc src/index.ts",
-    "nodemon-watch": "nodemon src/index.js"
+    "tsc-watch": "tsc -w",
+    "build": "tsc",
+    "nodemon-watch": "nodemon build/index.js"
   },
   "dependencies": {
     "@types/express": "^4.17.6",

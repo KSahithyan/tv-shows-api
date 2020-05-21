@@ -5,7 +5,7 @@ interface DataFormat {
     shows: ShowObject[]
 }
 
-const OUTPUT_FILE_NAME = "data.json";
+const OUTPUT_FILE_NAME = "./../build/data.json";
 
 const data: DataFormat = {
     shows: [
