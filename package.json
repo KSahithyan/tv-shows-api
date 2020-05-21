@@ -11,8 +11,9 @@
     "start": "node build/index.js",
     "dev": "concurrently npm:tsc-watch npm:nodemon-watch",
     "tsc-watch": "tsc -w",
-    "build": "tsc",
-    "nodemon-watch": "nodemon build/index.js"
+    "ts-build": "tsc",
+    "nodemon-watch": "nodemon build/index.js",
+    "push-all": "npm run ts-build && git push origin master && git push heroku master"
   },
   "dependencies": {
     "@types/express": "^4.17.6",
