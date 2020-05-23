@@ -1,11 +1,12 @@
-import { ShowObject } from "./types";
+import { ShowObject, DataObj } from "./types";
 const fs = require('fs');
+const path = require('path');
 
 interface DataFormat {
     shows: ShowObject[]
 }
 
-const OUTPUT_FILE_NAME = "./../build/data.json";
+const OUTPUT_FILE = "./../build/data.json";
 
 const data: DataFormat = {
     shows: [
@@ -13,6 +14,7 @@ const data: DataFormat = {
             is_complete_data: false,
             id: "game-of-thrones",
             name: "Game Of Thrones",
+            rating: 9.3,
             status: "Ended",
             category: ["fantasy", "serial drama", "tragedy"],
             season_count: 8,
@@ -157,6 +159,7 @@ const data: DataFormat = {
             is_complete_data: false,
             id: "the-big-bang-theory",
             name: "The Big Bang Theory",
+            rating: 8.1,
             status: "Ended",
             category: ["sitcom"],
             season_count: 12,
@@ -184,21 +187,19 @@ const data: DataFormat = {
                 { character_name: "Raj Koothrappali", actor_name: "Kunal Nayyar", first_appearance: "S01E01" },
                 { character_name: "Howard Wolowitz", actor_name: "Simon Helberg", first_appearance: "S01E01" },
                 { character_name: "Leslie Winkle", actor_name: "Sara Gilbert", first_appearance: "S01E03" },
+                { character_name: "Barry Kripke", actor_name: "John Ross Bowie", first_appearance: "S02E12" },
                 { character_name: "Stuart Bloom", actor_name: "Kevin Sussman", first_appearance: "S02E20" },
                 { character_name: "Bernadette Rostenkowski", actor_name: "Melissa Rauch", first_appearance: "S03E05" },
                 { character_name: "Amy Farrah Fowler", actor_name: "Mayim Bialik", first_appearance: "S03E23" },
+                { character_name: "Zack Johnson", actor_name: "Brian Thomas Smith", first_appearance: "S03E23" },
+                { character_name: "Priya Koothrappali", actor_name: "Aarti Mann", first_appearance: "S04E06" },
                 { character_name: "Emily Sweeney", actor_name: "Laura Spencer ", first_appearance: "S07E17" },
-                { character_name: "Wil Wheaton", actor_name: "Wil Wheaton", first_appearance: "" },
-                { character_name: "Barry Kripke", actor_name: "John Ross Bowie", first_appearance: "" },
-                { character_name: "Zack", actor_name: "Brian Thomas Smith", first_appearance: "" },
-                { character_name: "Denise", actor_name: "Lauren Lapkus", first_appearance: "" },
-                { character_name: "Priya Koothrappali", actor_name: "Aarti Mann", first_appearance: "" },
-                { character_name: "Denise", actor_name: "Lauren Lapkus", first_appearance: "" },
+                { character_name: "Denise", actor_name: "Lauren Lapkus", first_appearance: "S11E21" },
                 { character_name: "Alex Jenson", actor_name: "Margo Harshman", first_appearance: "" }
             ],
             episode_list: [
-                { episode_id: "S01E01", episode_title: "Pilot", important_notes: [ "Penny moves in", "Sheldon and Leonard visits Penny's ex-boyfriend to pickup Penny's TV" ], first_appearances: [ "Sheldon", "Leonard", "Penny", "Raj", "Howard" ] },
-                { episode_id: "S01E02", episode_title: "The Big Bran Hypothesis", important_notes: [ "Sheldon and Leonard cleans Penny's apartment" ]},
+                { episode_id: "S01E01", episode_title: "Pilot", important_notes: [ "Penny moves in", "Sheldon & Leonard visits Penny's ex-boyfriend to pickup Penny's TV" ], first_appearances: [ "Sheldon", "Leonard", "Penny", "Raj", "Howard" ] },
+                { episode_id: "S01E02", episode_title: "The Big Bran Hypothesis", important_notes: [ "Sheldon & Leonard cleans Penny's apartment" ]},
                 { episode_id: "S01E03", episode_title: "The Fuzzy Boots Corollary" },
                 { episode_id: "S01E04", episode_title: "The Luminous Fish Effect", important_notes: [ "Sheldon gets fired" ]},
                 { episode_id: "S01E05", episode_title: "The Hamburger Postulate" },
@@ -225,7 +226,7 @@ const data: DataFormat = {
                 { episode_id: "S02E09", episode_title: "The White Asparagus Triangulation" },
                 { episode_id: "S02E10", episode_title: "The Vartabedian Conundrum" },
                 { episode_id: "S02E11", episode_title: "The Bath Item Gift Hypothesis", important_notes: [ "Penny gives Sheldon a gift" ]},
-                { episode_id: "S02E12", episode_title: "The Killer Robot Instability", important_notes: [ "Penny punches Howard" ]},
+                { episode_id: "S02E12", episode_title: "The Killer Robot Instability", important_notes: [ "Penny punches Howard", "Robot fight takes place: M.O.N.T.E. vs Kripke Krippler" ]},
                 { episode_id: "S02E13", episode_title: "The Friendship Algorithm" },
                 { episode_id: "S02E14", episode_title: "The Financial Permeability" },
                 { episode_id: "S02E15", episode_title: "The Maternal Capacitance" },
@@ -268,8 +269,8 @@ const data: DataFormat = {
                 { episode_id: "S04E06", episode_title: "The Irish Pub Formulation", important_notes: [ "Priya comes back to LA" ]},
                 { episode_id: "S04E07", episode_title: "The Apology Insufficiency", important_notes: [ "Howard didn't manage to get into the Defense Department laser-equipped surveillance satellite team","Sheldon gives away his spot on the couch"]},
                 { episode_id: "S04E08", episode_title: "The 21-Second Excitation", important_notes: [ "Sheldon, Leonard, Raj & Howard goes to movie 'Raiders of the Lost Ark'","Penny, Bernadette & Amy have girls' night"]},
-                { episode_id: "S04E09", episode_title: "The Boyfriend Complexity", important_notes: [ "Penny's dad visits Penny","Raj monitors a telescope with Howard and Bernadette"]},
-                { episode_id: "S04E10", episode_title: "The Alien Parasite Hypothesis", important_notes: [ "Amy gets horny","Howard and Raj fights to choose who is the Hero and the Sidekick"]},
+                { episode_id: "S04E09", episode_title: "The Boyfriend Complexity", important_notes: [ "Penny's dad visits Penny","Raj monitors a telescope with Howard & Bernadette"]},
+                { episode_id: "S04E10", episode_title: "The Alien Parasite Hypothesis", important_notes: [ "Amy gets horny","Howard & Raj fights to choose who is the Hero & the Sidekick"]},
                 { episode_id: "S04E11", episode_title: "The Justice League Recombination", important_notes: [ "Zack meets & talks with the `Science doods`","Sheldon, Leonard, Howard, Raj, Zack & Penny goes to Costume party as Justice League of America"]},
                 { episode_id: "S04E12", episode_title: "The Bus Pants Utilization", important_notes: [ "Leonard, Sheldon, Raj & Howard develops an app" ]},
                 { episode_id: "S04E13", episode_title: "The Love Car Displacement", important_notes: [ "Sheldon, Leonard, Raj, Howard, Amy, Bernadette, Penny goes to Big Sur" ]},
@@ -288,7 +289,7 @@ const data: DataFormat = {
                 { episode_id: "S05E02", episode_title: "The Infestation Hypothesis", important_notes: [ "Sheldon sits on Penny's old chair","Howard invents a internet-kissing machine"]},
                 { episode_id: "S05E03", episode_title: "The Pulled Groin Extrapolation", important_notes: [ "Bernadette tries living with Howard and his mom","Amy & Leonard goes to a wedding", "Amy thinks Leonard loves her" ]},
                 { episode_id: "S05E04", episode_title: "The Wiggly Finger Catalyst", important_notes: [ "Raj meets Emily","Sheldon, Howard, Leonard & Penny gets to know that Raj is wealthy"],first_appearances: ["Emily"]},
-                { episode_id: "S05E05", episode_title: "The Russian Rocket Reaction", important_notes: [ "Howard goes to ISS","Amy gets know the List of Sheldon's mortal enimies","Wil Wheaton becomes Sheldon's friend"]},
+                { episode_id: "S05E05", episode_title: "The Russian Rocket Reaction", important_notes: [ "Howard gets to go to Space","Amy gets know the List of Sheldon's mortal enimies","Wil Wheaton becomes Sheldon's friend"]},
                 { episode_id: "S05E06", episode_title: "The Rhinitis Revelation", important_notes: [ "Sheldon's mom visits Sheldon" ] },
                 { episode_id: "S05E07", episode_title: "The Good Guy Fluctuation", important_notes: [ "Howard, Raj & Leonard pranks Sheldon","Sheldon tries to prank Leonard, Raj & Howard", "Sheldon fails to prank Leonard, Raj & Howard" ] },
                 { episode_id: "S05E08", episode_title: "The Isolation Permutation", important_notes: [ "Penny & Bernadette goes shopping without Amy","Amy drinks" ] },
@@ -297,11 +298,11 @@ const data: DataFormat = {
                 { episode_id: "S05E11", episode_title: "The Speckerman Recurrence", important_notes: [ "Leonard meets his bully","Penny donates her clothes"]},
                 { episode_id: "S05E12", episode_title: "The Shiny Trinket Maneuver", important_notes: [ "Amy & Sheldon fights","Bernadette tells Howard that she doesn't want to have kids"]},
                 { episode_id: "S05E13", episode_title: "The Recombination Hypothesis", important_notes: [ "Leonard asks Penny for a date","Leonard & Penny gets into Penny & Leonard 2.O"]},
-                { episode_id: "S05E14", episode_title: "The Beta Test Initiation" },
-                { episode_id: "S05E15", episode_title: "The Friendship Contraction" },
-                { episode_id: "S05E16", episode_title: "The Vacation Solution" },
-                { episode_id: "S05E17", episode_title: "The Rothman Disintegration" },
-                { episode_id: "S05E18", episode_title: "The Werewolf Transformation" },
+                { episode_id: "S05E14", episode_title: "The Beta Test Initiation", important_notes: ["Sheldon starts `Fun with Flags`", "Leonard & Penny gets into Alpha-Testing", "Raj has crush on Siri"] },
+                { episode_id: "S05E15", episode_title: "The Friendship Contraction", important_notes: ["Howard has to choose a nickname", "Leonard invokes Roommate Agreement (Clause 209)"] },
+                { episode_id: "S05E16", episode_title: "The Vacation Solution", important_notes: ["Sheldon works with Amy", "Bernadette wants a Prenub"] },
+                { episode_id: "S05E17", episode_title: "The Rothman Disintegration", important_notes: ["Amy presents a huge gift for Penny", "Sheldon & Kripke want to get Rothman's office"] },
+                { episode_id: "S05E18", episode_title: "The Werewolf Transformation", important_notes: ["Sheldon wants a hair", "Howard gets training to go to Space"] },
                 { episode_id: "S05E19", episode_title: "The Weekend Vortex" },
                 { episode_id: "S05E20", episode_title: "The Transporter Malfunction" },
                 { episode_id: "S05E21", episode_title: "The Hawking Excitation" },
@@ -487,6 +488,7 @@ const data: DataFormat = {
             is_complete_data: false,
             name: "Friends",
             id: "friends",
+            rating: 8.9,
             status: "Ended",
             category: ["sitcom"],
             season_count: 10,
@@ -760,6 +762,17 @@ const data: DataFormat = {
     ]
 }
 
-fs.writeFile(OUTPUT_FILE_NAME, JSON.stringify(data), () => {
-    console.log(`Wrote ${OUTPUT_FILE_NAME}`)
+/**
+ * @description Alters the data before writing to data.json
+ */
+const alter = (x: DataFormat): DataFormat => {
+    let y = { ...x }
+
+    y.shows = y.shows.sort((a, b) => b.rating - a.rating)
+    
+    return y
+}
+
+fs.writeFile(path.join(__dirname, OUTPUT_FILE), JSON.stringify(alter(data)), () => {
+    console.log(`Wrote data to ${OUTPUT_FILE}`)
 })

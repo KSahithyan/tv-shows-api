@@ -13,14 +13,14 @@
     "tsc-watch": "tsc -w",
     "ts-build": "tsc",
     "nodemon-watch": "nodemon build/index.js",
-    "push-all": "npm run ts-build && git push origin master && git push heroku master"
+    "push-all": "git push origin master && git push heroku master"
   },
   "dependencies": {
-    "@types/express": "^4.17.6",
     "express": "^4.17.1",
     "typescript": "^3.9.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.6",
     "@types/node": "^14.0.4",
     "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"

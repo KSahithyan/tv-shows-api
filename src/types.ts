@@ -19,7 +19,8 @@ export interface EpisodeObj {
 }
 
 export interface ShowObject {
-    is_complete_data: boolean, 
+    is_complete_data: boolean,
+    rating: number,
     id: string,
     name: string,
     status: "Ended" | "Running",
@@ -36,4 +37,8 @@ export interface ShowObject {
 
 export interface DataObj {
     shows: ShowObject[]
+}
+
+export interface Error {
+    message: string
 }
