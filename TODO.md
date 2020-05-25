@@ -1,9 +1,6 @@
 ## Todos
 
-- [x] Add `category` based searching for shows.
-- [x] Change `/shows/:id` route to `/show?id`.
-- [x] Add `rating` for shows.
-- [x] Sort shows based on `rating`.
+- [x] Add `gender` property for `CharacterObj`.
 - [ ] Add missing data
   - [ ] Friends
   - [ ] The Big Bang Theory

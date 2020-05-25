@@ -1,8 +1,21 @@
-# TV Series API
+# TV Shows API
+
+**NOTE** This API doesn't hold all the data right now. If you help to collect the data, it will become ready soon.
+
+## Why?
+
+There are many APIs which provide the data about TV Shows. But, This stands among them.
+
+- **100% Free**   
+  It's totally free. When you use this API in your app or something, (If you can) mention that you are using this API where you use it.
+- **Open Source**   
+  It's open sourced and built simple. So you can see what it is doing behind.
+- **No Authentication**   
+  Just use this API, without any hassle.
 
 ## Usage
 
-This API is now running on Vercel and Heroku. Here are the links.
+This API is now running on [Vercel](https://www.vercel.com) and [Heroku](https://www.heroku.com). Here are the links.
 
 - https://tv-shows-api-psi.now.sh
 - https://tv-shows-api.ksahithyan.now.sh

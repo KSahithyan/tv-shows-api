@@ -3,6 +3,7 @@ const episodeIdTemplate = (seasonNo: number, episodeNo: number): any => `S${seas
 export interface CharacterObj {
     character_name: string,
     actor_name: string,
+    gender: "male" | "female" | "indeterminate" | "unknown",
     first_appearance: string
 }
 

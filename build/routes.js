@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getShowsByCategory = exports.getShowById = exports.getShows = exports.getRoutes = void 0;
 const data = require('./data.json');
 const formatJSON = (obj) => JSON.stringify(obj, null, 3);
 exports.getRoutes = function (_request, response) {

@@ -13,7 +13,8 @@
     "tsc-watch": "tsc -w",
     "ts-build": "tsc",
     "nodemon-watch": "nodemon build/index.js",
-    "push-all": "git push origin master && git push heroku master"
+    "push-all": "git push origin master && git push heroku master",
+    "build-everything": "tsc && ts-node src/data-gen.ts"
   },
   "dependencies": {
     "express": "^4.17.1",
