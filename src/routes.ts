@@ -68,11 +68,11 @@ export const getDetailsOfShow: RequestHandler<any, any, any, any> = function (re
             message: `No shows found with the id, ${showId}`
         })
     } else {
-
         const AVAILABLE_ENDPOINTS = ["characters", "episodes", "seasons"]
         //@ts-ignore
         response.json(
-            AVAILABLE_ENDPOINTS.includes(dataCategory) && selectedShow == undefined ? selectedShow[dataCategory] ?? "" :
+            //@ts-ignore
+            AVAILABLE_ENDPOINTS.includes(dataCategory) ? selectedShow[dataCategory] :
             { message: `${dataCategory} endpoint not available` }
             )
         }

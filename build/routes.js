@@ -35,7 +35,6 @@ exports.getShowsByCategory = (category) => {
     };
 };
 exports.getDetailsOfShow = function (request, response) {
-    var _a;
     const { data_category: dataCategory, id: showId } = request.params;
     let selectedShow = findShow(showId);
     if (selectedShow == undefined) {
@@ -45,7 +44,7 @@ exports.getDetailsOfShow = function (request, response) {
     }
     else {
         const AVAILABLE_ENDPOINTS = ["characters", "episodes", "seasons"];
-        response.json(AVAILABLE_ENDPOINTS.includes(dataCategory) && selectedShow == undefined ? (_a = selectedShow[dataCategory]) !== null && _a !== void 0 ? _a : "" :
+        response.json(AVAILABLE_ENDPOINTS.includes(dataCategory) ? selectedShow[dataCategory] :
             { message: `${dataCategory} endpoint not available` });
     }
 };
