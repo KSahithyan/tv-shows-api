@@ -1,12 +1,15 @@
+// @ts-ignore
 import { ShowObject, DataObj } from "./types";
+// @ts-ignore
 const fs = require('fs');
+// @ts-ignore
 const path = require('path');
 
 interface DataFormat {
     shows: ShowObject[]
 }
-
-const OUTPUT_FILE = "./../build/data.json";
+// @ts-ignore
+const OUTPUT_FILE = process.env.OUTPUT || "./../build/data.json";
 
 const data: DataFormat = {
     shows: [
@@ -262,7 +265,7 @@ const data: DataFormat = {
                 { episode_id: "S03E19", episode_title: "The Wheaton Recurrence" },
                 { episode_id: "S03E20", episode_title: "The Spaghetti Catalyst" },
                 { episode_id: "S03E21", episode_title: "The Plimpton Stimulation" },
-                { episode_id: "S03E22", episode_title: "The Staircase Implementation" },
+                { episode_id: "S03E22", episode_title: "The Staircase Implementation", important_notes: ["Leonard tells how he met Sheldon"] },
                 { episode_id: "S03E23", episode_title: "The Lunar Excitation", important_notes: [ "Sheldon meets Amy" ], first_appearances: [ "Amy"]},
                 { episode_id: "S04E01", episode_title: "The Robotic Manipulation", important_notes: [ "Howard makes a robotic arm","Howard gets his pe*** stuck in his robotic arm"]},
                 { episode_id: "S04E02", episode_title: "The Cruciferous Vegetable Amplification", important_notes: [ "Sheldon tries to figure out when is he going to die","Sheldon becomes a bot"]},
@@ -312,30 +315,30 @@ const data: DataFormat = {
                 { episode_id: "S05E22", episode_title: "The Stag Convergence", important_notes: ["Howard gives out a bachelorate party"] },
                 { episode_id: "S05E23", episode_title: "The Launch Acceleration", important_notes: ["NASA going to send Howard to space again", "Leonard proposes to Penny", "Amy trying to make Sheldon like her"] },
                 { episode_id: "S05E24", episode_title: "The Countdown Reflection", important_notes: ["Howard & Bernadette getting married", "Howard goes to space"] },
-                { episode_id: "S06E01", episode_title: "The Date Night Variable" },
-                { episode_id: "S06E02", episode_title: "The Decoupling Fluctuation" },
-                { episode_id: "S06E03", episode_title: "The Higgs Boson Observation" },
-                { episode_id: "S06E04", episode_title: "The Re-Entry Minimization" },
-                { episode_id: "S06E05", episode_title: "The Holographic Excitation" },
-                { episode_id: "S06E06", episode_title: "The Extract Obliteration" },
-                { episode_id: "S06E07", episode_title: "The Habitation Configuration" },
-                { episode_id: "S06E08", episode_title: "The 43 Peculiarity" },
-                { episode_id: "S06E09", episode_title: "The Parking Spot Escalation" },
-                { episode_id: "S06E10", episode_title: "The Fish Guts Displacement" },
-                { episode_id: "S06E11", episode_title: "The Santa Simulation" },
-                { episode_id: "S06E12", episode_title: "The Egg Salad Equivalency" },
-                { episode_id: "S06E13", episode_title: "The Bakersfield Expedition" },
-                { episode_id: "S06E14", episode_title: "The Cooper/Kripke Inversion" },
-                { episode_id: "S06E15", episode_title: "The Spoiler Alert Segmentation" },
-                { episode_id: "S06E16", episode_title: "The Tangible Affection Proof" },
-                { episode_id: "S06E17", episode_title: "The Monster Isolation" },
-                { episode_id: "S06E18", episode_title: "The Contractual Obligation Implementation" },
-                { episode_id: "S06E19", episode_title: "The Closet Reconfiguration" },
-                { episode_id: "S06E20", episode_title: "The Tenure Turbulence" },
-                { episode_id: "S06E21", episode_title: "The Closure Alternative" },
-                { episode_id: "S06E22", episode_title: "The Proton Resurgence" },
-                { episode_id: "S06E23", episode_title: "The Love Spell Potential" },
-                { episode_id: "S06E24", episode_title: "The Bon Voyage Reaction" },
+                { episode_id: "S06E01", episode_title: "The Date Night Variable", important_notes: ["Raj is alone", "Howard having problem with his wife, Berndette and his mother"] },
+                { episode_id: "S06E02", episode_title: "The Decoupling Fluctuation", important_notes: ["Penny may break up with Leonard", "The other astronauts are mean to Howard"] },
+                { episode_id: "S06E03", episode_title: "The Higgs Boson Observation", important_notes: ["Sheldon hires an assistante", "Howard stuck at Space", "Alex hitting on Leonard"] },
+                { episode_id: "S06E04", episode_title: "The Re-Entry Minimization", important_notes: ["Howard comes back from Space", "Sheldon, Amy, Leonard & Penny has game night"] },
+                { episode_id: "S06E05", episode_title: "The Holographic Excitation", important_notes: ["Stuart having a halloween party", "Howard talks about Space every minute"] },
+                { episode_id: "S06E06", episode_title: "The Extract Obliteration", important_notes: ["Penny goes to school back", "Sheldon plays with Stephan Hawking"] },
+                { episode_id: "S06E07", episode_title: "The Habitation Configuration", important_notes: ["Amy & Sheldon fights"] },
+                { episode_id: "S06E08", episode_title: "The 43 Peculiarity", important_notes: ["Leonard worried about Penny having a friendship with a man"] },
+                { episode_id: "S06E09", episode_title: "The Parking Spot Escalation", important_notes: ["Howard gets Sheldon's parking spot"] },
+                { episode_id: "S06E10", episode_title: "The Fish Guts Displacement", important_notes: ["Amy gets sick", "Howard & Bernadette's father goes fishing together"] },
+                { episode_id: "S06E11", episode_title: "The Santa Simulation", important_notes: ["Leonard, Sheldon, Howard, Raj & Stuart are having a D&D game night.", "Raj goes on a girls' night with Penny, Bernadette and Amy"] },
+                { episode_id: "S06E12", episode_title: "The Egg Salad Equivalency", important_notes: ["Alex asks Leonard for a date"] },
+                { episode_id: "S06E13", episode_title: "The Bakersfield Expedition", important_notes: ["Sheldon, Howard, Howard & Raj go to Comic-Con", "Bernadette, Amy & Penny try reading comic books"] },
+                { episode_id: "S06E14", episode_title: "The Cooper/Kripke Inversion", important_notes: ["Sheldon has to work with Kripke", "Raj & Howard buys a 3D printer"] },
+                { episode_id: "S06E15", episode_title: "The Spoiler Alert Segmentation", important_notes: ["Leonard wants to live with Penny", "Amy wants to live with Sheldon", "Raj got trapped at Howard's mother."] },
+                { episode_id: "S06E16", episode_title: "The Tangible Affection Proof", important_notes: ["Valentines' Day hits", "Raj meets Lucy"] },
+                { episode_id: "S06E17", episode_title: "The Monster Isolation", important_notes: ["Penny helps Sheldon on his acting"] },
+                { episode_id: "S06E18", episode_title: "The Contractual Obligation Implementation", important_notes: ["Amy, Penny and Bernadette goes to Disney land", "Leonard, Sheldon & Howard tries to encourage women in science"] },
+                { episode_id: "S06E19", episode_title: "The Closet Reconfiguration", important_notes: ["Sheldon cleans Howard's closet"] },
+                { episode_id: "S06E20", episode_title: "The Tenure Turbulence", important_notes: ["A tenure position opens up at Caltech"] },
+                { episode_id: "S06E21", episode_title: "The Closure Alternative", important_notes: ["Amy trying to solve Sheldon's problem with closure"] },
+                { episode_id: "S06E22", episode_title: "The Proton Resurgence", important_notes: ["Sheldon finds Professor Proton online", "Raj leaves Cinnamon with Howard & Bernadette"] },
+                { episode_id: "S06E23", episode_title: "The Love Spell Potential", important_notes: ["Sheldon, Leonard, Howard, Bernadette, Amy & Penny plays D&D while Raj is out with Lucy"] },
+                { episode_id: "S06E24", episode_title: "The Bon Voyage Reaction", important_notes: ["Lucy leaves Raj", "Raj talks to Penny without being drunk"] },
                 { episode_id: "S07E01", episode_title: "The Hofstadter Insufficiency" },
                 { episode_id: "S07E02", episode_title: "The Deception Verification" },
                 { episode_id: "S07E03", episode_title: "The Scavenger Vortex" },
@@ -765,17 +768,14 @@ const data: DataFormat = {
     ]
 }
 
-/**
- * @description Alters the data before writing to data.json
- */
-const alter = (x: DataFormat): DataFormat => {
+const sortBasedOnRating = (x: DataFormat): DataFormat => {
     let y = { ...x }
 
     y.shows = y.shows.sort((a, b) => b.rating - a.rating)
     
     return y
 }
-
-fs.writeFile(path.join(__dirname, OUTPUT_FILE), JSON.stringify(alter(data)), () => {
+// @ts-ignore
+fs.writeFile(path.join(__dirname, OUTPUT_FILE), JSON.stringify(sortBasedOnRating(data)), () => {
     console.log(`Wrote data to ${OUTPUT_FILE}`)
 })

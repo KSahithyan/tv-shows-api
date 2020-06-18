@@ -1,6 +1,5 @@
 ## Todos
 
-- [x] Add `gender` property for `CharacterObj`.
 - [ ] Add missing data
   - [ ] Friends
   - [ ] The Big Bang Theory
@@ -13,4 +12,4 @@
   - [ ] The Walking Dead
   - [ ] Westworld
 
-- [ ] Write **Documentation**
+- [ ] Write **Documentation**.
