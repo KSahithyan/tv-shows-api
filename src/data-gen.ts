@@ -80,7 +80,7 @@ const data: DataFormat = {
                 { actor_name: "Jonathan Pryce", character_name: "The High Sparrow", gender: "male", first_appearance: "S05E03" },
                 { actor_name: "Wilf Scolding", character_name: "Rhaegar Targaryen", gender: "male", first_appearance: "S07E07" },
             ],
-            episode_list: [
+            episodes: [
                 { episode_id: "S01E01", episode_title: "Winter is Coming" },
                 { episode_id: "S01E02", episode_title: "The Kingsroad" },
                 { episode_id: "S01E03", episode_title: "Lord Snow" },
@@ -203,7 +203,7 @@ const data: DataFormat = {
                 { character_name: "Denise", actor_name: "Lauren Lapkus", gender: "female", first_appearance: "S11E21" },
                 { character_name: "Alex Jenson", actor_name: "Margo Harshman", gender: "female", first_appearance: "S06E03" }
             ],
-            episode_list: [
+            episodes: [
                 { episode_id: "S01E01", episode_title: "Pilot", important_notes: [ "Penny moves in", "Sheldon & Leonard visits Penny's ex-boyfriend to pickup Penny's TV" ], first_appearances: [ "Sheldon", "Leonard", "Penny", "Raj", "Howard" ] },
                 { episode_id: "S01E02", episode_title: "The Big Bran Hypothesis", important_notes: [ "Sheldon & Leonard cleans Penny's apartment" ]},
                 { episode_id: "S01E03", episode_title: "The Fuzzy Boots Corollary" },
@@ -521,7 +521,7 @@ const data: DataFormat = {
                 { actor_name: "Matthew Perry", character_name: "Chandler Bing", gender: "male", first_appearance: "" },
                 { actor_name: "David Schwimmer", character_name: "Ross Geller", gender: "male", first_appearance: "" },
             ],
-            episode_list: [
+            episodes: [
                 { episode_id: "S01E01", episode_title: "The One Where Monica Gets a Roommate" },
                 { episode_id: "S01E02", episode_title: "The One With the Sonogram at the End" },
                 { episode_id: "S01E03", episode_title: "The One With the Thumb" },

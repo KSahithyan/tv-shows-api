@@ -32,7 +32,7 @@ export interface ShowObject {
     episodes_count_total: number,
     seasons: SeasonObj[],
     characters: CharacterObj[],
-    episode_list: EpisodeObj[],
+    episodes: EpisodeObj[],
     reference: string[]
 }
 

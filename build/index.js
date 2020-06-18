@@ -12,6 +12,8 @@ app.use(function (request, response, next) {
 });
 app.get('/', routes_1.getRoutes);
 app.get('/shows', routes_1.getShows);
+app.get('/shows/:id', routes_1.getShowById);
+app.get('/shows/:id/:data_category', routes_1.getDetailsOfShow);
 app.listen(process.env.PORT || PORT_NUMBER, function () {
     console.log(`Listening on https://localhost:${PORT_NUMBER}`);
 });
