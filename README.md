@@ -37,6 +37,6 @@ And be sure to do these before pull request.
 ## Development
 
 1. Clone this repo.
-2. `npm install`.
-3. `npm run dev` will run the express server at http://localhost:3000   
+2. `npm install` to install the dependencies.
+3. `npm run dev` to run the express server locally at http://localhost:3000   
 You can override the port that with `PORT` argument.
